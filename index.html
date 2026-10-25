@@ -71,6 +71,127 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-关于我对等保2-0的理解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/10/25/%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E7%AD%89%E4%BF%9D2-0%E7%9A%84%E7%90%86%E8%A7%A3/" class="article-date">
+  <time class="dt-published" datetime="2026-10-25T12:28:24.000Z" itemprop="datePublished">2026-10-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/10/25/%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E7%AD%89%E4%BF%9D2-0%E7%9A%84%E7%90%86%E8%A7%A3/">关于我对等保2.0的理解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、等保2-0是什么"><a href="#一、等保2-0是什么" class="headerlink" title="一、等保2.0是什么"></a>一、等保2.0是什么</h2><p>等保，全称“网络安全等级保护”，是我国网络安全领域的一项基础性制度。它的核心逻辑很朴素：<strong>根据信息系统被破坏后造成的危害程度，把系统分成不同等级，再对不同等级提出不同的安全要求，并配套备案、建设整改、测评和监督检查的流程</strong>。</p>
+<p>我们现在说的“等保2.0”，指的是 2019 年发布、2019 年 12 月 1 日正式实施的新一代标准体系，主要文件包括：</p>
+<ul>
+<li>GB&#x2F;T 22239-2019《网络安全等级保护基本要求》</li>
+<li>GB&#x2F;T 22240-2020《网络安全等级保护定级指南》</li>
+<li>GB&#x2F;T 25070-2019《网络安全等级保护安全设计技术要求》</li>
+<li>GB&#x2F;T 28448-2019《网络安全等级保护测评要求》</li>
+<li>GB&#x2F;T 25058-2019《网络安全等级保护实施指南》</li>
+</ul>
+<p>相比 1.0 时代，它最根本的变化是<strong>上位法变了</strong>：2017 年施行的《网络安全法》第二十一条明确要求“国家实行网络安全等级保护制度”，等保从此从部门规章上升为法律义务，不再只是“建议做”，而是“必须做”。</p>
+<h2 id="二、定级：五个等级"><a href="#二、定级：五个等级" class="headerlink" title="二、定级：五个等级"></a>二、定级：五个等级</h2><p>定级的依据是<strong>受侵害的客体</strong>和<strong>侵害程度</strong>两个维度，最终落到五个级别：</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>名称</th>
+<th>大致对应</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一级</td>
+<td>自主保护级</td>
+<td>一般系统，受损只影响公民、法人的合法权益</td>
+</tr>
+<tr>
+<td>第二级</td>
+<td>指导保护级</td>
+<td>受损会严重损害公民、法人权益，或损害社会秩序和公共利益</td>
+</tr>
+<tr>
+<td>第三级</td>
+<td>监督保护级</td>
+<td>受损会严重损害社会秩序和公共利益，或损害国家安全</td>
+</tr>
+<tr>
+<td>第四级</td>
+<td>强制保护级</td>
+<td>受损会特别严重损害社会秩序和公共利益，或严重损害国家安全</td>
+</tr>
+<tr>
+<td>第五级</td>
+<td>专控保护级</td>
+<td>受损会特别严重损害国家安全</td>
+</tr>
+</tbody></table>
+<p>实际工作中接触最多的是二级和三级。三级系统要求<strong>每年至少做一次等级测评</strong>，且二级以上系统在定级时一般需要经过专家评审。</p>
+<h2 id="三、控制项分类：技术-管理"><a href="#三、控制项分类：技术-管理" class="headerlink" title="三、控制项分类：技术 + 管理"></a>三、控制项分类：技术 + 管理</h2><p>等保2.0 的基本要求把所有控制项分成两大类：<strong>技术要求</strong>和<strong>管理要求</strong>，每一类下面再分层、分控制点、分控制项。这是理解等保最关键的框架。</p>
+<h3 id="（一）技术要求：一个中心、三重防护"><a href="#（一）技术要求：一个中心、三重防护" class="headerlink" title="（一）技术要求：一个中心、三重防护"></a>（一）技术要求：一个中心、三重防护</h3><p>技术要求被重构为五个层面，构成“<strong>一个中心、三重防护</strong>”的体系：</p>
+<ol>
+<li><strong>安全物理环境</strong>——机房选址、门禁、防火防水防雷、温湿度、电力供应、电磁防护等，管的是“房子”。</li>
+<li><strong>安全通信网络</strong>——网络架构、带宽与冗余、通信传输的完整性和保密性，强调传输过程不能被窃听篡改。</li>
+<li><strong>安全区域边界</strong>——边界防护、访问控制、入侵防范、恶意代码防范、安全审计，管的是“进出”。</li>
+<li><strong>安全计算环境</strong>——身份鉴别、访问控制、安全审计、入侵防范、数据完整性&#x2F;保密性、数据备份恢复、剩余信息保护、个人信息保护，管的是“主机和应用”。</li>
+<li><strong>安全管理中心</strong>——系统管理、审计管理、安全管理、集中管控，把日志、账号、策略集中起来统一管理。</li>
+</ol>
+<p>那个“<strong>一个中心</strong>”就是安全管理中心，三重防护指通信网络、区域边界、计算环境。这个设计的意图很清楚：安全不能靠单点堆设备，而要形成<strong>集中管控 + 分层纵深</strong>的闭环。</p>
+<h3 id="（二）管理要求：五个方面"><a href="#（二）管理要求：五个方面" class="headerlink" title="（二）管理要求：五个方面"></a>（二）管理要求：五个方面</h3><p>管理要求同样分五个方面，覆盖系统的全生命周期：</p>
+<ol>
+<li><strong>安全管理制度</strong>——制度体系、发布流程、定期评审修订。</li>
+<li><strong>安全管理机构</strong>——岗位设置、人员配备、授权审批、沟通合作、审核检查。</li>
+<li><strong>安全管理人员</strong>——录用、离岗、安全意识培训、外部人员访问管理。</li>
+<li><strong>安全建设管理</strong>——定级备案、方案设计、产品采购、开发（自研&#x2F;外包）、工程实施、测试验收、交付、等级测评、服务供应商管理。</li>
+<li><strong>安全运维管理</strong>——资产管理、介质管理、漏洞与风险管理、配置管理、密码管理、变更管理、备份恢复、安全事件处置、应急预案、外包运维等。</li>
+</ol>
+<p>从渗透测试的角度看，管理要求里很多控制项其实正是攻击面：<strong>弱口令、默认账号、未及时打补丁、外包运维账号失控、日志缺失、应急响应形同虚设</strong>——这些在技术层面查不出来，却是实战中最常见的突破口。</p>
+<h2 id="四、和等保1-0的区别"><a href="#四、和等保1-0的区别" class="headerlink" title="四、和等保1.0的区别"></a>四、和等保1.0的区别</h2><p>我理解下来，1.0 到 2.0 的差异不只是“换了个版本号”，而是思路的升级。主要可以归纳为五点：</p>
+<p><strong>1. 名称与法律地位变了。</strong><br>从“信息安全等级保护”改为“网络安全等级保护”，范围从“信息”扩大到整个网络空间；上位法从部门规章变成《网络安全法》，违规要承担法律责任。</p>
+<p><strong>2. 保护对象大幅扩展。</strong><br>1.0 主要面向传统信息系统，2.0 把<strong>云计算、移动互联、物联网、工业控制系统、大数据</strong>全部纳入，采用“<strong>安全通用要求 + 安全扩展要求</strong>”的结构（即“1+N”）。这是最直观的变化：云上系统要额外满足云计算扩展要求，工控系统要满足工控扩展要求。</p>
+<p><strong>3. 技术架构重构了。</strong><br>1.0 的技术要求是“物理安全、网络安全、主机安全、应用安全、数据安全及备份恢复”五类；2.0 重排为“物理环境、通信网络、区域边界、计算环境、管理中心”，并明确提出“一个中心、三重防护”。同时新增了<strong>可信验证</strong>、密码应用、个人信息保护等要求，从“防得住”走向“可验证”。</p>
+<p><strong>4. 管理要求更贴近实战。</strong><br>2.0 把 1.0 的“系统建设管理&#x2F;系统运维管理”调整为“安全建设管理&#x2F;安全运维管理”，并强化了<strong>供应链安全</strong>，比如服务供应商管理、外包软件开发、外包运维管理——这对应的是近几年频发的供应链攻击。</p>
+<p><strong>5. 流程更闭环，要求更严。</strong><br>定级、备案、建设整改、等级测评、监督检查形成完整闭环；二级以上定级需要专家评审；测评内容更细化、可操作性更强，不再是“有制度就行”，而是要有记录、有执行、能追溯。</p>
+<p>一句话概括：1.0 解决的是“有没有”，2.0 解决的是“<strong>管不管用、能不能验证</strong>”。</p>
+<h2 id="五、从渗透测试视角看等保"><a href="#五、从渗透测试视角看等保" class="headerlink" title="五、从渗透测试视角看等保"></a>五、从渗透测试视角看等保</h2><p>作为渗透测试课程的学习者，我最大的体会是：<strong>等保和渗透测试是同一件事的两个视角</strong>。</p>
+<ul>
+<li>等保是<strong>合规视角</strong>，回答“该有的控制项有没有、配置对不对”，偏静态核查；</li>
+<li>渗透测试是<strong>攻击视角</strong>，回答“这些控制项在真实攻击下顶不顶得住”，偏动态验证。</li>
+</ul>
+<p>两者并不冲突，而是互补。等保测评中也会用到渗透测试作为验证手段，比如验证边界防护是否真的能拦住未授权访问、身份鉴别是否存在弱口令、访问控制能否被越权绕过、数据传输是否真的加密。反过来说，等保给出的控制项清单，恰好是一份很好的<strong>渗透测试检查表</strong>：把每一条控制项翻译成“攻击者会怎么绕”，就能形成清晰的测试思路。</p>
+<p>当然，做这件事的前提是<strong>授权</strong>。等保测评和渗透测试都必须有明确的授权范围和时间窗口，未经授权的测试本身就违反了等保和《网络安全法》的要求——这大概是这门课教给我最实用的一课。</p>
+<h2 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h2><p>等保2.0 不是一个可以“买设备过关”的清单，而是一套<strong>以等级为基准、以业务为中心、覆盖技术与管理全生命周期</strong>的安全治理框架。它的技术框架可以记成“一个中心、三重防护”，管理框架可以记成“制度、机构、人员、建设、运维”五块；和 1.0 相比，核心变化在于<strong>对象扩展、架构重构、可信验证、供应链安全、法律强制</strong>。</p>
+<p>对我个人来说，学等保最大的收获是建立了一种“<strong>从合规要求反推攻击面</strong>”的思维方式——这或许比记住多少条控制项更重要。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/10/25/%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E7%AD%89%E4%BF%9D2-0%E7%9A%84%E7%90%86%E8%A7%A3/" data-id="cuid2ebEw0bZCWfneZ7Cs-IyC" data-title="关于我对等保2.0的理解" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AD%89%E4%BF%9D2-0/" rel="tag">等保2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4/" rel="tag">等级保护</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/09/30/hello-world/" class="article-date">
@@ -110,7 +231,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/09/30/hello-world/" data-id="cuidP50i-LPz7d2ww31nnD7YI" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/09/30/hello-world/" data-id="cuidXRzMiULkL8_eW6cQVn9N4" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -132,15 +253,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%89%E4%BF%9D2-0/" rel="tag">等保2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4/" rel="tag">等级保护</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E7%AD%89%E4%BF%9D2-0/" style="font-size: 10px;">等保2.0</a> <a href="/tags/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4/" style="font-size: 10px;">等级保护</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 10px;">网络安全</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">October 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li></ul>
     </div>
   </div>
 
@@ -151,6 +286,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/10/25/%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E7%AD%89%E4%BF%9D2-0%E7%9A%84%E7%90%86%E8%A7%A3/">关于我对等保2.0的理解</a>
+          </li>
         
           <li>
             <a href="/2026/09/30/hello-world/">Hello World</a>
