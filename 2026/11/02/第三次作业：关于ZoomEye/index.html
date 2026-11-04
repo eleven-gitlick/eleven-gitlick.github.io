@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>第三次作业：关于ZoomEye | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本次作业围绕网络空间测绘搜索引擎展开：先梳理与 ZoomEye 功能类似的引擎，再结合 ZoomEye 做实际检索，最后动手完成一次子域名收集。文中所有检索与收集均针对公开资产或自有域名，仅做被动查询，不连接、不利用目标系统。 一、与 ZoomEye 功能类似的搜索引擎有哪些ZoomEye（钟馗之眼）属于网络空间测绘搜索引擎：它通过分布式探针对全球 IP 进行扫描，把开放的端口、协议、服务指纹、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三次作业：关于ZoomEye">
+<meta property="og:url" content="http://example.com/2026/11/02/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A%EF%BC%9A%E5%85%B3%E4%BA%8EZoomEye/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本次作业围绕网络空间测绘搜索引擎展开：先梳理与 ZoomEye 功能类似的引擎，再结合 ZoomEye 做实际检索，最后动手完成一次子域名收集。文中所有检索与收集均针对公开资产或自有域名，仅做被动查询，不连接、不利用目标系统。 一、与 ZoomEye 功能类似的搜索引擎有哪些ZoomEye（钟馗之眼）属于网络空间测绘搜索引擎：它通过分布式探针对全球 IP 进行扫描，把开放的端口、协议、服务指纹、">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A%E7%9A%84%E8%A6%81%E6%B1%82.jpg">
+<meta property="og:image" content="http://example.com/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/zoomeye-nginx.jpg">
+<meta property="og:image" content="http://example.com/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/zoomeye-redis.jpg">
+<meta property="og:image" content="http://example.com/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/zoomeye-hostname.jpg">
+<meta property="og:image" content="http://example.com/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/crt-sh.jpg">
+<meta property="og:image" content="http://example.com/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/httpx-alive.jpg">
+<meta property="og:image" content="http://example.com/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/subdomain-result.jpg">
+<meta property="article:published_time" content="2026-11-02T14:05:19.000Z">
+<meta property="article:modified_time" content="2026-11-02T15:30:14.952Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="ZoomEye">
+<meta property="article:tag" content="信息收集">
+<meta property="article:tag" content="子域名收集">
+<meta property="article:tag" content="网络安全">
+<meta property="article:tag" content="网络空间测绘">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A%E7%9A%84%E8%A6%81%E6%B1%82.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第三次作业：关于ZoomEye" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/11/02/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A%EF%BC%9A%E5%85%B3%E4%BA%8EZoomEye/" class="article-date">
+  <time class="dt-published" datetime="2026-11-02T14:05:19.000Z" itemprop="datePublished">2026-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      第三次作业：关于ZoomEye
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A%E7%9A%84%E8%A6%81%E6%B1%82.jpg" alt="第三次作业要求"></p>
+<p>本次作业围绕网络空间测绘搜索引擎展开：先梳理与 ZoomEye 功能类似的引擎，再结合 ZoomEye 做实际检索，最后动手完成一次子域名收集。文中所有检索与收集均针对公开资产或自有域名，仅做被动查询，不连接、不利用目标系统。</p>
+<h2 id="一、与-ZoomEye-功能类似的搜索引擎有哪些"><a href="#一、与-ZoomEye-功能类似的搜索引擎有哪些" class="headerlink" title="一、与 ZoomEye 功能类似的搜索引擎有哪些"></a>一、与 ZoomEye 功能类似的搜索引擎有哪些</h2><p>ZoomEye（钟馗之眼）属于<strong>网络空间测绘搜索引擎</strong>：它通过分布式探针对全球 IP 进行扫描，把开放的端口、协议、服务指纹、网页标题、证书、组件版本等信息建立索引，用户用类似 Google 的语法就能检索“互联网上有哪些设备&#x2F;服务”。功能类似的引擎主要有以下几类。</p>
+<h3 id="1-国外主流平台"><a href="#1-国外主流平台" class="headerlink" title="1. 国外主流平台"></a>1. 国外主流平台</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>所属&#x2F;背景</th>
+<th>主要特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Shodan</strong></td>
+<td>美国</td>
+<td>最早的网络空间搜索引擎，被称为“暗黑版 Google”。设备指纹和 Banner 数据丰富，支持 <code>port:</code>、<code>country:</code>、<code>org:</code>、<code>product:</code>、<code>vuln:</code> 等过滤器，API 生态成熟</td>
+</tr>
+<tr>
+<td><strong>Censys</strong></td>
+<td>美国（密歇根大学团队）</td>
+<td>持续扫描全 IPv4 空间，<strong>证书检索</strong>能力突出，可按证书、主机、Web 资产分别检索，提供免费 Search 额度</td>
+</tr>
+<tr>
+<td><strong>BinaryEdge</strong></td>
+<td>瑞士</td>
+<td>API 优先的测绘平台，覆盖 IP、域名、证书、CVE，适合做自动化资产监控</td>
+</tr>
+<tr>
+<td><strong>GreyNoise</strong></td>
+<td>美国</td>
+<td>不强调“找资产”，而是给扫描流量打标签，区分互联网背景噪音与针对性攻击，常与 Shodan 配合使用</td>
+</tr>
+<tr>
+<td><strong>Netlas.io</strong></td>
+<td>捷克</td>
+<td>界面和语法接近 Shodan，支持 favicon hash、证书、CVE 检索，有免费套餐</td>
+</tr>
+<tr>
+<td><strong>Criminal IP</strong></td>
+<td>韩国</td>
+<td>IP 信誉画像 + 资产测绘，主打威胁情报与攻击面管理</td>
+</tr>
+<tr>
+<td><strong>Onyphe</strong></td>
+<td>法国</td>
+<td>网络空间情报聚合，侧重被动 DNS、证书和威胁情报关联</td>
+</tr>
+</tbody></table>
+<h3 id="2-国内主流平台"><a href="#2-国内主流平台" class="headerlink" title="2. 国内主流平台"></a>2. 国内主流平台</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>所属</th>
+<th>主要特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>FOFA</strong></td>
+<td>白帽汇</td>
+<td>国内使用最广的测绘引擎之一，语法与 ZoomEye 相近，支持 <code>title</code>、<code>body</code>、<code>header</code>、<code>cert</code>、<code>domain</code>、<code>icon_hash</code> 等字段，API 完善</td>
+</tr>
+<tr>
+<td><strong>360 Quake</strong></td>
+<td>360</td>
+<td>中文界面，语法类似，资产指纹和协议覆盖较全，提供免费额度</td>
+</tr>
+<tr>
+<td><strong>Hunter（奇安信鹰图）</strong></td>
+<td>奇安信</td>
+<td>侧重企业资产测绘，支持域名、证书、ICP 备案、icon hash 等维度检索</td>
+</tr>
+<tr>
+<td><strong>ZoomEye</strong></td>
+<td>知道创宇</td>
+<td>本次作业主角，支持 <code>app</code>、<code>service</code>、<code>port</code>、<code>hostname</code>、<code>cert</code>、<code>iconhash</code> 等语法，分“设备搜索”和“Web 搜索”两种模式</td>
+</tr>
+</tbody></table>
+<h3 id="3-它们之间的差异"><a href="#3-它们之间的差异" class="headerlink" title="3. 它们之间的差异"></a>3. 它们之间的差异</h3><ul>
+<li><strong>索引侧重点不同</strong>：Shodan、Censys 偏“主机&#x2F;服务&#x2F;Banner”，ZoomEye、FOFA、Quake 在 Web 指纹、组件识别和中文资产上更友好，GreyNoise 则偏“流量定性”。</li>
+<li><strong>语法相近但不通用</strong>：字段名和逻辑运算符各有一套，例如 ZoomEye 用 <code>app:</code>、<code>hostname:</code>，FOFA 用 <code>app=</code>、<code>domain=</code>，迁移时需要改写查询。</li>
+<li><strong>免费额度差异大</strong>：Shodan、Censys、ZoomEye、FOFA、Quake 都有免费账号，但可查结果条数和 API 调用次数受限，批量使用通常需要付费或申请教育&#x2F;企业权限。</li>
+<li><strong>合规边界相同</strong>：它们只是“看得到”公开暴露的信息，<strong>不代表可以访问或测试</strong>。未授权扫描、爆破、利用均违反《网络安全法》，作业中只做检索和统计。</li>
+</ul>
+<h2 id="二、结合-ZoomEye-进行相关检索"><a href="#二、结合-ZoomEye-进行相关检索" class="headerlink" title="二、结合 ZoomEye 进行相关检索"></a>二、结合 ZoomEye 进行相关检索</h2><h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h3><p>注册并登录 <a target="_blank" rel="noopener" href="https://www.zoomeye.org/">ZoomEye</a>，进入搜索页。ZoomEye 分为 <strong>Host 搜索（设备）</strong> 和 <strong>Web 搜索</strong>，两者的可用字段略有区别。检索前先明确目的：是统计某类服务的暴露面，还是梳理某个域名的资产。</p>
+<h3 id="2-常用检索语法"><a href="#2-常用检索语法" class="headerlink" title="2. 常用检索语法"></a>2. 常用检索语法</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>app:</code></td>
+<td>应用&#x2F;组件指纹</td>
+<td><code>app:nginx</code></td>
+</tr>
+<tr>
+<td><code>service:</code></td>
+<td>服务类型</td>
+<td><code>service:ssh</code></td>
+</tr>
+<tr>
+<td><code>port:</code></td>
+<td>端口</td>
+<td><code>port:6379</code></td>
+</tr>
+<tr>
+<td><code>hostname:</code></td>
+<td>主机名&#x2F;域名</td>
+<td><code>hostname:example.com</code></td>
+</tr>
+<tr>
+<td><code>ip:</code></td>
+<td>IP 或网段</td>
+<td><code>ip:8.8.8.8</code></td>
+</tr>
+<tr>
+<td><code>country:</code> &#x2F; <code>city:</code></td>
+<td>国家&#x2F;城市</td>
+<td><code>country:CN</code></td>
+</tr>
+<tr>
+<td><code>title:</code></td>
+<td>网页标题</td>
+<td><code>title:&quot;后台管理&quot;</code></td>
+</tr>
+<tr>
+<td><code>cert:</code></td>
+<td>证书内容</td>
+<td><code>cert:&quot;example.com&quot;</code></td>
+</tr>
+<tr>
+<td><code>iconhash:</code></td>
+<td>favicon 哈希</td>
+<td><code>iconhash:&quot;...&quot;</code></td>
+</tr>
+<tr>
+<td><code>os:</code></td>
+<td>操作系统</td>
+<td><code>os:Windows</code></td>
+</tr>
+</tbody></table>
+<p>逻辑运算支持 <code>&amp;&amp;</code>（与）、<code>||</code>（或）、<code>!</code>（非）和括号组合，例如 <code>app:&quot;nginx&quot; &amp;&amp; country:&quot;CN&quot;</code>。</p>
+<h3 id="3-实际检索示例"><a href="#3-实际检索示例" class="headerlink" title="3. 实际检索示例"></a>3. 实际检索示例</h3><p><strong>示例一：统计国内 Nginx 资产</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app:&quot;nginx&quot; &amp;&amp; country:&quot;CN&quot;</span><br></pre></td></tr></table></figure>
+
+<p>结果页会给出匹配总量、Top 端口、Top 省份等统计信息，可以直观看到 Web 服务的分布情况。</p>
+<p><img src="/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/zoomeye-nginx.jpg" alt="ZoomEye 检索 Nginx 资产"></p>
+<p><strong>示例二：查看开放 Redis 的主机（仅统计，不连接）</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">port:&quot;6379&quot; &amp;&amp; country:&quot;CN&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这类查询常用于了解“未授权 Redis”的暴露规模。<strong>只查看结果列表和统计，不尝试连接或执行命令</strong>，否则就跨过了合规红线。</p>
+<p><img src="/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/zoomeye-redis.jpg" alt="ZoomEye 检索 6379 端口"></p>
+<p><strong>示例三：按域名梳理资产</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname:&quot;example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>把 <code>example.com</code> 换成自己有权限的域名，可以快速列出该域名下被测绘到的子域名、IP 和开放服务，这也是后面子域名收集的被动来源之一。</p>
+<p><img src="/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/zoomeye-hostname.jpg" alt="ZoomEye 按域名检索"></p>
+<p><strong>示例四：按网页标题找同类系统</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title:&quot;后台管理&quot; &amp;&amp; country:&quot;CN&quot;</span><br></pre></td></tr></table></figure>
+
+<p>用于观察某类管理后台的暴露情况。检索结果中的 URL 不应被直接访问，更不能尝试登录。</p>
+<h3 id="4-检索小结"><a href="#4-检索小结" class="headerlink" title="4. 检索小结"></a>4. 检索小结</h3><p>ZoomEye 的价值在于把“看不见的互联网资产”变成可检索的数据。使用时要注意三点：一是<strong>查询要具体</strong>，字段越明确噪声越小；二是<strong>结果要交叉验证</strong>，不同引擎的扫描周期和指纹库不同，同一资产可能只在某一家出现；三是<strong>守住合规边界</strong>，检索不等于授权。</p>
+<h2 id="三、如何进行子域名收集"><a href="#三、如何进行子域名收集" class="headerlink" title="三、如何进行子域名收集"></a>三、如何进行子域名收集</h2><h3 id="1-什么是子域名收集"><a href="#1-什么是子域名收集" class="headerlink" title="1. 什么是子域名收集"></a>1. 什么是子域名收集</h3><p>子域名是主域名之下的一级或多级域名，例如 <code>mail.example.com</code>、<code>vpn.example.com</code>、<code>dev.example.com</code>。主站往往防护严密，而子域名（测试环境、OA、VPN、旧系统）更容易被忽视，因此子域名收集是<strong>信息收集&#x2F;攻击面梳理的第一步</strong>。</p>
+<p>收集思路可以分成两类：</p>
+<ul>
+<li><strong>被动收集</strong>：从第三方数据源“旁敲侧击”，不与目标直接交互，隐蔽性好。</li>
+<li><strong>主动收集</strong>：直接向目标 DNS 或服务器发起查询，结果更全，但会产生流量，<strong>必须获得授权</strong>。</li>
+</ul>
+<h3 id="2-被动收集"><a href="#2-被动收集" class="headerlink" title="2. 被动收集"></a>2. 被动收集</h3><h4 id="（1）证书透明日志（CT）"><a href="#（1）证书透明日志（CT）" class="headerlink" title="（1）证书透明日志（CT）"></a>（1）证书透明日志（CT）</h4><p>网站申请 HTTPS 证书时，证书信息会写入公开的 Certificate Transparency 日志，其中包含域名和 SAN 字段，这是最稳定的被动来源之一。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询 www.guet.edu.cn 的证书记录，提取所有域名并去重</span></span><br><span class="line">curl -s <span class="string">&quot;https://crt.sh/?q=%25.www.guet.edu.cn&amp;output=json&quot;</span> \</span><br><span class="line">  | jq -r <span class="string">&#x27;.[].name_value&#x27;</span> \</span><br><span class="line">  | <span class="built_in">tr</span> <span class="string">&#x27;\n&#x27;</span> <span class="string">&#x27;\n&#x27;</span> | <span class="built_in">sort</span> -u &gt; crt_subs.txt</span><br></pre></td></tr></table></figure>
+
+<p>也可以直接在浏览器打开 <code>https://crt.sh/?q=%25.www.guet.edu.cn</code> 查看。除了 crt.sh，Censys、VirusTotal、SecurityTrails 也提供证书&#x2F;域名关联查询。</p>
+<p><img src="/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/crt-sh.jpg" alt="crt.sh 查询子域名"></p>
+<h4 id="（2）网络空间测绘引擎"><a href="#（2）网络空间测绘引擎" class="headerlink" title="（2）网络空间测绘引擎"></a>（2）网络空间测绘引擎</h4><p>在 ZoomEye 中用 <code>hostname:&quot;example.com&quot;</code>，在 FOFA 中用 <code>domain=&quot;example.com&quot;</code>，在 Hunter 中用 <code>domain.suffix=&quot;example.com&quot;</code>，都能拿到测绘到的子域名和相关 IP。这类结果偏向“真实开放过服务”的资产。</p>
+<h4 id="（3）公开-DNS-数据集与聚合工具"><a href="#（3）公开-DNS-数据集与聚合工具" class="headerlink" title="（3）公开 DNS 数据集与聚合工具"></a>（3）公开 DNS 数据集与聚合工具</h4><ul>
+<li><strong>RapidDNS</strong>、<strong>DNSDumpster</strong>、<strong>HackerTarget</strong>：网页版被动 DNS 查询。</li>
+<li><strong>subfinder</strong>：聚合数十个被动源，一条命令完成收集。</li>
+<li><strong>assetfinder</strong>、<strong>findomain</strong>：轻量级被动枚举工具。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># subfinder 被动收集（需授权目标）</span></span><br><span class="line">subfinder -d www.guet.edu.cn -all -silent -o subs_passive.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="（4）其他情报来源"><a href="#（4）其他情报来源" class="headerlink" title="（4）其他情报来源"></a>（4）其他情报来源</h4><p>GitHub 代码搜索、前端 JS 文件、APP&#x2F;小程序抓包、搜索引擎 <code>site:</code> 语法、历史 DNS 记录、SPF&#x2F;DMARC 记录等，都可能泄露内部域名。这些属于“人肉 + 工具”结合的补充手段。</p>
+<h3 id="3-主动收集"><a href="#3-主动收集" class="headerlink" title="3. 主动收集"></a>3. 主动收集</h3><h4 id="（1）字典爆破"><a href="#（1）字典爆破" class="headerlink" title="（1）字典爆破"></a>（1）字典爆破</h4><p>用常见子域名字典逐个查询 DNS，能发现没有被第三方收录的域名。常用工具：<code>dnsenum</code>、<code>dnsrecon</code>、<code>gobuster dns</code>、<code>fierce</code>、<code>ksubdomain</code>、<code>massdns</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gobuster 字典爆破示例</span></span><br><span class="line">gobuster dns -d example.com \</span><br><span class="line">  -w /usr/share/wordlists/subdomains.txt \</span><br><span class="line">  -t 50</span><br><span class="line"></span><br><span class="line"><span class="comment"># dnsx 批量解析并筛选存活域名</span></span><br><span class="line">dnsx -l subs_all.txt -a -resp -o subs_resolved.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）DNS-区域传送（AXFR）"><a href="#（2）DNS-区域传送（AXFR）" class="headerlink" title="（2）DNS 区域传送（AXFR）"></a>（2）DNS 区域传送（AXFR）</h4><p>如果目标 DNS 服务器错误地允许区域传送，可以一次性拿到全部记录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig axfr @ns1.example.com example.com</span><br></pre></td></tr></table></figure>
+
+<p>现代 DNS 服务器基本都关闭了 AXFR，成功率很低，但值得一试（需授权）。</p>
+<h4 id="（3）泛解析检测"><a href="#（3）泛解析检测" class="headerlink" title="（3）泛解析检测"></a>（3）泛解析检测</h4><p>很多域名配置了泛解析（<code>*.example.com</code> 指向同一 IP），爆破时会把所有字典项都“解析成功”，造成大量误报。收集前应先用随机字符串测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig random-string-12345.example.com +short</span><br></pre></td></tr></table></figure>
+
+<p>如果返回了 IP，说明存在泛解析，需要按返回 IP 过滤结果。</p>
+<h4 id="（4）结果验证"><a href="#（4）结果验证" class="headerlink" title="（4）结果验证"></a>（4）结果验证</h4><p>收集到的域名要验证是否真的存活，常用 <code>httpx</code> 批量探测 HTTP&#x2F;HTTPS 并获取标题、状态码、指纹：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpx-toolkit -l subs_all.txt -title -status-code -tech-detect -o alive.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/httpx-alive.jpg" alt="子域名存活验证"></p>
+<h3 id="4-完整流程示例"><a href="#4-完整流程示例" class="headerlink" title="4. 完整流程示例"></a>4. 完整流程示例</h3><p>以自有域名 <code>example.com</code> 为例（实际使用时替换为已授权域名）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 被动收集：subfinder 聚合多个源</span></span><br><span class="line">subfinder -d example.com -all -silent -o subs_passive.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 主动补充：字典爆破</span></span><br><span class="line">gobuster dns -d example.com \</span><br><span class="line">  -w /usr/share/wordlists/subdomains.txt \</span><br><span class="line">  -t 50 -o subs_brute.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 合并去重</span></span><br><span class="line"><span class="built_in">cat</span> subs_passive.txt subs_brute.txt | <span class="built_in">sort</span> -u &gt; subs_all.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 存活验证</span></span><br><span class="line">httpx -l subs_all.txt -title -status-code -tech-detect -o alive.txt</span><br></pre></td></tr></table></figure>
+
+<p>最终得到的 <code>alive.txt</code> 就是一份带状态码和指纹的资产清单，可以继续交给后续的漏洞扫描或人工核查。</p>
+<p><img src="/images/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/subdomain-result.jpg" alt="子域名收集最终结果"></p>
+<h3 id="5-合规提醒"><a href="#5-合规提醒" class="headerlink" title="5. 合规提醒"></a>5. 合规提醒</h3><p>子域名收集本身是公开信息整理，但<strong>主动爆破、区域传送、端口扫描都属于对目标的探测行为</strong>。实际操作必须满足以下条件之一：</p>
+<ol>
+<li>目标是自己的域名&#x2F;资产；</li>
+<li>有书面的渗透测试授权，且授权范围明确包含该域名；</li>
+<li>在 CTF、靶场等授权环境中。</li>
+</ol>
+<p>对未授权的第三方域名做字典爆破，可能构成《网络安全法》第二十七条禁止的“干扰他人网络正常功能、窃取网络数据”等行为，切勿越界。</p>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><ol>
+<li><strong>同类引擎</strong>：Shodan、Censys、FOFA、360 Quake、Hunter、BinaryEdge、GreyNoise、Netlas、Criminal IP、Onyphe 等，都属于网络空间测绘&#x2F;资产搜索引擎，各有侧重。</li>
+<li><strong>ZoomEye 检索</strong>：掌握 <code>app:</code>、<code>port:</code>、<code>hostname:</code>、<code>title:</code>、<code>cert:</code> 等字段和逻辑组合，可以快速统计资产暴露面；检索结果只用于分析，不直接访问。</li>
+<li><strong>子域名收集</strong>：被动（CT 日志、测绘引擎、subfinder）与主动（字典爆破、AXFR）结合，再用 <code>httpx</code> 验证存活，形成完整资产清单。整个过程必须在授权范围内进行。</li>
+</ol>
+<p>通过这次作业，我对“网络空间测绘”有了更具体的认识：它把互联网资产变成可检索的数据，既是攻击者踩点的工具，也是防守方做资产梳理和暴露面管理的利器，关键看使用者是否守住合规边界。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/11/02/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A%EF%BC%9A%E5%85%B3%E4%BA%8EZoomEye/" data-id="cuidWJ-Hxri8MlH5w2oXmh_kk" data-title="第三次作业：关于ZoomEye" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZoomEye/" rel="tag">ZoomEye</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" rel="tag">信息收集</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%90%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/" rel="tag">子域名收集</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E6%B5%8B%E7%BB%98/" rel="tag">网络空间测绘</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/10/25/QQ%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90-PC-PC%E7%AB%AF%E3%80%81PC-%E6%89%8B%E6%9C%BA%E7%AB%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">QQ流量分析(PC-PC端、PC-手机端)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QQ/" rel="tag">QQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wireshark/" rel="tag">Wireshark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZoomEye/" rel="tag">ZoomEye</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" rel="tag">信息收集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%90%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/" rel="tag">子域名收集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" rel="tag">流量分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%89%E4%BF%9D2-0/" rel="tag">等保2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4/" rel="tag">等级保护</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E6%B5%8B%E7%BB%98/" rel="tag">网络空间测绘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4/" rel="tag">隐私保护</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/QQ/" style="font-size: 10px;">QQ</a> <a href="/tags/Wireshark/" style="font-size: 10px;">Wireshark</a> <a href="/tags/ZoomEye/" style="font-size: 10px;">ZoomEye</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" style="font-size: 10px;">信息收集</a> <a href="/tags/%E5%AD%90%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/" style="font-size: 10px;">子域名收集</a> <a href="/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" style="font-size: 10px;">流量分析</a> <a href="/tags/%E7%AD%89%E4%BF%9D2-0/" style="font-size: 10px;">等保2.0</a> <a href="/tags/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4/" style="font-size: 10px;">等级保护</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 20px;">网络安全</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E6%B5%8B%E7%BB%98/" style="font-size: 10px;">网络空间测绘</a> <a href="/tags/%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4/" style="font-size: 10px;">隐私保护</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/11/">November 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">October 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/11/02/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A%EF%BC%9A%E5%85%B3%E4%BA%8EZoomEye/">第三次作业：关于ZoomEye</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/25/QQ%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90-PC-PC%E7%AB%AF%E3%80%81PC-%E6%89%8B%E6%9C%BA%E7%AB%AF/">QQ流量分析(PC-PC端、PC-手机端)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/25/%E5%85%B3%E4%BA%8E%E6%88%91%E5%AF%B9%E7%AD%89%E4%BF%9D2-0%E7%9A%84%E7%90%86%E8%A7%A3/">关于我对等保2.0的理解</a>
+          </li>
+        
+          <li>
+            <a href="/2026/09/30/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
